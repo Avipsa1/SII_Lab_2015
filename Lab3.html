@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+ <title> IFGI Route Map </title>
+ <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+</head>
+
+<body>
+
+<h1> How to get to IfGI by train and bus ?</h1>
+
+<p> After reaching Muenster Hauptbahnhof by train, you can take Bus No. 13 or 4 from Muenster Hauptbahnhof to Mendelstrasse busstop to go to IfGI at Heisenbergstrasse, 2, which is a Green and Black colour building right in front of the Mendelstrasse busstop.</p>
+
+<!--<iframe width="900" height="700" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.hk/maps?f=d&amp;source=s_d&amp;saddr=ifgi+(Institute+for+Geoinformatics),+University+of+M%C3%BCnster,+Heisenbergstra%C3%9Fe+2,+48149+M%C3%BCnster,+Deutschland&amp;daddr=M%C3%BCnster(Westf)Hbf,+M%C3%BCnster,+Deutschland&amp;geocode=FX78GAMd5eZzACm7-O4PSqW5RzGKeApyk5GIgg%3BFVbLGAMdA4N0ACEu3zhXCBBeCikl5nmG2bq5RzEu3zhXCBBeCg&amp;aq=0&amp;oq=HBF&amp;sll=51.969707,7.595758&amp;sspn=0.015493,0.040855&amp;gl=cn&amp;hl=zh-CN&amp;brcurrent=3,0x0:0x0,0%3B5,0,0&amp;dirflg=r&amp;ttype=now&amp;noexp=0&amp;noal=0&amp;sort=def&amp;mra=ls&amp;ie=UTF8&amp;t=m&amp;start=0&amp;ll=51.960026,7.615615&amp;spn=0.018686,0.039893&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com.hk/maps?f=d&amp;source=embed&amp;saddr=ifgi+(Institute+for+Geoinformatics),+University+of+M%C3%BCnster,+Heisenbergstra%C3%9Fe+2,+48149+M%C3%BCnster,+Deutschland&amp;daddr=M%C3%BCnster(Westf)Hbf,+M%C3%BCnster,+Deutschland&amp;geocode=FX78GAMd5eZzACm7-O4PSqW5RzGKeApyk5GIgg%3BFVbLGAMdA4N0ACEu3zhXCBBeCikl5nmG2bq5RzEu3zhXCBBeCg&amp;aq=0&amp;oq=HBF&amp;sll=51.969707,7.595758&amp;sspn=0.015493,0.040855&amp;gl=cn&amp;hl=zh-CN&amp;brcurrent=3,0x0:0x0,0%3B5,0,0&amp;dirflg=r&amp;ttype=now&amp;noexp=0&amp;noal=0&amp;sort=def&amp;mra=ls&amp;ie=UTF8&amp;t=m&amp;start=0&amp;ll=51.960026,7.615615&amp;spn=0.018686,0.039893" style="color:#0000FF;text-align:left">æŸ¥çœ‹å¤§å›¾</a></small>-->
+
+
+<br>
+ <p> IFGI Route Map </p> <br>
+
+  <div id="map" style="width: 600px; height: 400px"></div>
+
+
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+
+<script>
+
+var map = L.map('map').setView([51.96245, 7.62486], 13);
+
+		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery Â© <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-i875kd35'
+		}).addTo(map);
+
+
+		L.marker([51.96245, 7.62486]).addTo(map)
+			.bindPopup("<b>MUENSTER</b><br />").openPopup();
+			
+		L.marker([51.96937, 7.59576]).addTo(map)
+			.bindPopup("<b>IFGI</b><br />").openPopup();
+		
+		L.marker([51.95666, 7.6355]).addTo(map)
+			.bindPopup("<b>Muenster Hbf</b><br />").openPopup();
+		
+		L.marker([51.96939, 7.59635]).addTo(map)
+			.bindPopup("<b>Mendelstrasse BusStop</b><br />").openPopup();
+
+		L.circle([51.96937, 7.59576], 1000, {
+			color: 'red',
+			fillColor: '#f03',
+			fillOpacity: 0.5
+		}).addTo(map);
+		
+		L.polyline([[51.95666, 7.6355], [51.96937, 7.59576]], {color: 'blue'}).addTo(map);
+		
+	
+
+		var popup = L.popup();
+
+		function onMapClick(e) {
+			popup
+				.setLatLng(e.latlng)
+				.setContent("You clicked the map at " + e.latlng.toString())
+				.openOn(map);
+		}
+
+		map.on('click', onMapClick);
+</script>
+
+ 
+ <p> Other useful resources : </p>
+
+<a href="http://www.uni-muenster.de/Geoinformatics/">Weblink to IFGI</a><br>
+
+<a href="https://www.google.co.in/maps/dir/M%C3%BCnster+HBF,+Germany/Institut+f%C3%BCr+Geoinformatik,+Heisenbergstra%C3%9Fe+2,+48149+Muenster,+Germany/@51.9637768,7.5995223,14z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x47b9bad98679e625:0xa5e10085738df2e!2m2!1d7.6371157!2d51.9563776!1m5!1m1!1s0x47b9babbc6913253:0xdd9421c2d900c53a!2m2!1d7.5957799!2d51.9691134!3e0?hl=en-IN">Route Map to IFGI</a>
+
+<br>
+<br>
+
+<fieldset>
+     <legend>Contact Us:</legend>
+     <form action="http://www.w3schools.com/html/demo_form_action.asp" method="get">
+         FirstName: <input type = "text" id = "i1" name = "Firstname">
+         <br><br>
+         Lastname: <input type = "text" id = "i2" name = "Lastname">
+         <br><br><br>
+         Degree to be pursued:<input type = "radio" id = "i3" name = "degree">Bachelors<input type = "radio" id = "i4" name = "degree">Masters<input type = "radio" id = "i5" name = "degree">PhD
+         <br>
+         <br>
+         <p>Your query:</p>
+         <textarea id = "t1" name = "Userquery" rows="4" cols="50">
+         Please enter your queries here...
+         </textarea>
+         <br>
+         <input type="submit" id = "i6" name = "submit" value = "Submit">
+     </form>
+ </fieldset>
+</body>
+</html>
