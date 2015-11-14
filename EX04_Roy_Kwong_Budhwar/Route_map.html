@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+ <title> IFGI Route Map </title>
+ <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+</head>
+
+<body>
+
+<h1> How to get to IfGI by train and bus ?</h1>
+
+<p> After reaching Muenster Hauptbahnhof by train, you can take Bus No. 13 or 4 from Muenster Hauptbahnhof to Mendelstrasse busstop to go to IfGI at Heisenbergstrasse, 2, which is a Green and Black colour building right in front of the Mendelstrasse busstop.</p>
+
+
+
+<br>
+ <p> IFGI Route Map </p> <br>
+
+  <div id="map" style="width: 600px; height: 400px"></div>
+
+
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+
+<script>
+var map = new L.map('map').setView([51.96245, 7.62486], 13);
+		L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{ maxZoom: 18,
+	attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+		}).addTo(map);
+		//L.marker([51.96245, 7.62486]).addTo(map)
+			//.bindPopup("<b>MUENSTER</b><br />").openPopup();
+			
+		L.marker([51.96937, 7.59576]).addTo(map)
+			.bindPopup("<b>IFGI</b><br />").openPopup();
+		
+		L.marker([51.95666, 7.6355]).addTo(map)
+			.bindPopup("<b>Muenster Hbf</b><br />").openPopup();
+		
+		L.marker([51.96939, 7.59635]).addTo(map)
+			.bindPopup("<b>Mendelstrasse BusStop</b><br />").openPopup();
+		L.circle([51.96937, 7.59576], 1000, {
+			color: 'red',
+			fillColor: '#f03',
+			fillOpacity: 0.5
+		}).addTo(map);
+		
+		L.polyline([[51.95666, 7.6355], [51.96937, 7.59576]], {color: 'blue'}).addTo(map);
+		
+	
+		var popup = L.popup();
+		function onMapClick(e) {
+			popup
+				.setLatLng(e.latlng)
+				.setContent("You clicked the map at " + e.latlng.toString())
+				.openOn(map);
+		}
+		map.on('click', onMapClick);
+</script>
+
+ 
+ <p> Other useful resources : </p>
+
+<a href="http://www.uni-muenster.de/Geoinformatics/">Weblink to IFGI</a><br>
+
+<a href="https://www.google.co.in/maps/dir/M%C3%BCnster+HBF,+Germany/Institut+f%C3%BCr+Geoinformatik,+Heisenbergstra%C3%9Fe+2,+48149+Muenster,+Germany/@51.9637768,7.5995223,14z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x47b9bad98679e625:0xa5e10085738df2e!2m2!1d7.6371157!2d51.9563776!1m5!1m1!1s0x47b9babbc6913253:0xdd9421c2d900c53a!2m2!1d7.5957799!2d51.9691134!3e0?hl=en-IN">Route Map to IFGI</a>
+
+
+<h2> route request</h2>
+ 	<form action="http://open.mapquestapi.com/directions/v2/route?" method="get">
+<input type="checkbox" name="key" value="ZQ0bmOz1hBeTvA23EoR9zEj6j1Qg4rr5" required=true>Use Key
+ <br>
+ Starting Location:<br>
+<input type="text" name="from" required=true>
+
+<br>
+Target Location:<br>
+<input type="text" name="to" required=true>
+<br>
+<input type="submit" name="submit" value="Submit" />
+</form> 
+
+
+
+</body>
+</html>
