@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  Information about 3 cities in Germany  -->
+
+<citylist>
+<city>
+<name>Muenster</name>
+<state>North Rhine Westphalia</state>
+<population>296599</population>
+<latitude>51.9667</latitude>
+<longitude>7.6333</longitude>
+</city>
+<city>
+<name>Munich</name>
+<state>Bavaria</state>
+<population>1388000</population>
+<latitude>48.1333</latitude>
+<longitude>11.5667</longitude>
+</city>
+<city>
+<name>Berlin</name>
+<state>Brandenburg</state>
+<population>35020000</population>
+<latitude>52.5167</latitude>
+<longitude>13.3833</longitude>
+</city>
+</citylist>

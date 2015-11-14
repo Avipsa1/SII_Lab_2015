@@ -1,0 +1,27 @@
+{
+  "citylist": {
+    "city": [
+      {
+        "name": "Muenster",
+        "state": "North Rhine Westphalia",
+        "population": "296599",
+        "latitude": "51.9667",
+        "longitude": "7.6333"
+      },
+      {
+        "name": "Munich",
+        "state": "Bavaria",
+        "population": "1388000",
+        "latitude": "48.1333",
+        "longitude": "11.5667"
+      },
+      {
+        "name": "Berlin",
+        "state": "Brandenburg",
+        "population": "35020000",
+        "latitude": "52.5167",
+        "longitude": "13.3833"
+      }
+    ]
+  }
+}
